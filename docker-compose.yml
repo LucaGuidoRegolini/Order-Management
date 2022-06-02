@@ -1,0 +1,43 @@
+version: "3.2"
+
+services:
+
+  db:
+   image: postgres
+   container_name: ${DB_HOST}
+   restart: always
+   ports:
+     - ${DB_PORT}:5432
+   environment:
+    POSTGRES_DB: ${DB_NAME}
+    POSTGRES_USER: ${DB_USERNAME}
+    POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+
+  redis:
+    image: redis
+    container_name: ${REDIS_HOST}
+    restart: always
+    ports:
+      - ${REDIS_PORT}:6379
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+
+  api:
+    container_name: order_management_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run ${NODE_START}
+    working_dir: /usr/app/
+    restart: always
+    env_file: .env
+    volumes:
+      - ./src:/usr/app/src
+    depends_on:
+      - db
+      - redis
+    ports:
+      - ${PORT}:${PORT}
+
+
