@@ -8,9 +8,8 @@ import { emailRoutes } from './email.routes';
 import { avatarRoutes } from './avatar.routes';
 
 import {
-  createEmployeeValidation,
+  createUserValidation,
   updateUserValidation,
-  showUserValidation,
 } from './validation/user.validation';
 
 const userRoutes = Router();
@@ -21,10 +20,12 @@ userRoutes.use('/password', passwordRouter);
 userRoutes.use('/email', emailRoutes);
 userRoutes.use('/avatar', avatarRoutes);
 
+userRoutes.post('/', createUserValidation, userController.create);
+
 userRoutes.use(ensureAuthenticated);
 
-userRoutes.post('/:token', createEmployeeValidation, userController.create);
-userRoutes.put('/:user_uuid', updateUserValidation, userController.updated);
-userRoutes.get('/:user_uuid', showUserValidation, userController.show);
+userRoutes.put('/', updateUserValidation, userController.updated);
+userRoutes.get('/', userController.show);
+userRoutes.delete('/', userController.softDelete);
 
 export { userRoutes };

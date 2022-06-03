@@ -24,7 +24,7 @@ export class UserController {
 
   async updated(req: Request, res: Response): Promise<Response> {
     const { id: user_id } = req.user;
-    const { name, email, pipedrive_token } = req.body;
+    const { name, email, token } = req.body;
 
     const updatedUserService = container.resolve(UpdateUserService);
 
@@ -32,7 +32,7 @@ export class UserController {
       user_id,
       name: name || undefined,
       email: email || undefined,
-      pipedrive_token: pipedrive_token || undefined,
+      pipedrive_token: token || undefined,
     });
 
     return res.json(user);

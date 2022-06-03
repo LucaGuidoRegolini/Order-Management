@@ -88,6 +88,9 @@ export async function globalErrorHandler(
       case 'document.cnpj':
         messageString = `O CNPJ é inválido.`;
         break;
+      case 'object.unknown':
+        messageString = `O campo ${context.label} é inválido.`;
+        break;
       default:
         messageString = 'Aconteceu um erro tente novamente mais tarde.';
         break;

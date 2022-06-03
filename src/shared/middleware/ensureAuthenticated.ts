@@ -7,8 +7,7 @@ import { AppError } from '../errors/AppError';
 interface ITokenPayload {
   iat: number;
   exp: number;
-  sub: string;
-  isMaster: boolean;
+  id: string;
 }
 
 function ensureAuthenticated(
@@ -27,11 +26,10 @@ function ensureAuthenticated(
   try {
     const decoded = verify(token, jwt_config.secret as string);
 
-    const { sub, isMaster } = decoded as ITokenPayload;
+    const { id } = decoded as ITokenPayload;
 
     request.user = {
-      id: sub,
-      isMaster,
+      id,
     };
 
     return next();

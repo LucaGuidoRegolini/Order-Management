@@ -7,7 +7,7 @@ import { IUserRepository } from '../interfaces/IUserRepository';
 import { User } from '../entities/User';
 
 interface IRequest {
-  user_uuid: string;
+  user_id: string;
 }
 
 @injectable()
@@ -20,9 +20,9 @@ export class DeleteUserAvatarService {
     private storageProvider: IStorageProvider,
   ) {}
 
-  public async execute({ user_uuid }: IRequest): Promise<User> {
+  public async execute({ user_id }: IRequest): Promise<User> {
     const user = await this.userRepository.findBy({
-      id: user_uuid,
+      id: user_id,
     });
 
     if (!user) throw new AppError('Usuário não encontrado', 404);

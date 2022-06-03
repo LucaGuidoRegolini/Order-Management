@@ -11,7 +11,7 @@ const avatarController = new AvatarController();
 
 avatarRoutes.use(ensureAuthenticated);
 
-avatarRoutes.post('/', uploadMulter.single('avatar'), avatarController.update);
+avatarRoutes.patch('/', uploadMulter.single('avatar'), avatarController.update);
 avatarRoutes.delete('/', avatarController.delete);
 
 export { avatarRoutes };
