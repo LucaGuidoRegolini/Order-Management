@@ -43,4 +43,22 @@ describe('CreateUserService', () => {
 
     await expect(resp).rejects.toBeInstanceOf(AppError);
   });
+
+  it('should not be able to create a new user with same token', async () => {
+    await fakeUsersRepository.create({
+      name: 'John Doe',
+      email: 'john@email.com',
+      password: hashSync('123456', password_salt),
+      pipedrive_token: 'token',
+    });
+
+    const resp = createUserService.execute({
+      name: 'John Doe',
+      email: 'john2@email.com',
+      password: '123456',
+      token: 'token',
+    });
+
+    await expect(resp).rejects.toBeInstanceOf(AppError);
+  });
 });

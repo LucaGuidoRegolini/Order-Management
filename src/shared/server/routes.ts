@@ -1,12 +1,13 @@
+import { Router, Request, Response, NextFunction } from 'express';
 import path from 'path';
 
 import { userRoutes } from '@modules/users/routes/user.routes';
-
-import { Router, Request, Response, NextFunction } from 'express';
+import { dealRoutes } from '@modules/deals/routes/deal.routes';
 
 const router = Router();
 
 router.use('/users', userRoutes);
+router.use('/deals', dealRoutes);
 
 router.get('/', (request: Request, response: Response) =>
   response.sendFile(path.resolve(__dirname, '../views/home_page.html')),

@@ -33,6 +33,12 @@ export class CreateUserService {
 
     if (email_exists) throw new AppError('Email já cadastrado', 401);
 
+    const token_exists = await this.userRepository.findBy({
+      pipedrive_token: token,
+    });
+
+    if (token_exists) throw new AppError('token já cadastrado', 401);
+
     const passwordHash = hashSync(password, password_salt);
 
     const user = await this.userRepository.create({

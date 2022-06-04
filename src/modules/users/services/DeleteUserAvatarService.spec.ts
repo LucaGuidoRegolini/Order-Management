@@ -35,7 +35,7 @@ describe('DeleteUserAvatarService', () => {
     const deleteAvatar = jest.spyOn(fakeStorageProvider, 'deleteFile');
 
     await deleteUserAvatarService.execute({
-      user_uuid: user.id,
+      user_id: user.id,
     });
 
     expect(deleteAvatar).toHaveBeenCalledWith('avatar.jpg');
@@ -54,7 +54,7 @@ describe('DeleteUserAvatarService', () => {
     const deleteAvatar = jest.spyOn(fakeStorageProvider, 'deleteFile');
 
     await deleteUserAvatarService.execute({
-      user_uuid: user.id,
+      user_id: user.id,
     });
 
     expect(deleteAvatar).not.toHaveBeenCalled();
@@ -62,7 +62,7 @@ describe('DeleteUserAvatarService', () => {
 
   it('should not be able to delete the avatar with wrong user id', async () => {
     const resp = deleteUserAvatarService.execute({
-      user_uuid: 'user_id',
+      user_id: 'user_id',
     });
 
     await expect(resp).rejects.toBeInstanceOf(AppError);
