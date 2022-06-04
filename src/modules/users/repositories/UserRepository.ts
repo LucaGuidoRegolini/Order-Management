@@ -30,6 +30,10 @@ export class UserRepository implements IUserRepository {
     return user;
   }
 
+  public async index(): Promise<User[]> {
+    return this.ormRepository.find();
+  }
+
   public async listBy(
     { page = 1, limit = 10, filters }: IPaginatedRequest<User>,
     deleted_to?: boolean,

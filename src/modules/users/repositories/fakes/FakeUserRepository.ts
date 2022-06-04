@@ -27,6 +27,10 @@ export class FakeUserRepository implements IUserRepository {
     return user;
   }
 
+  public async index(): Promise<User[]> {
+    return this.users;
+  }
+
   public async listBy(
     { filters, page = 1, limit = 10 }: IPaginatedRequest<User>,
     deleted_to?: boolean,

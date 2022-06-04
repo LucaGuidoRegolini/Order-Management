@@ -15,6 +15,11 @@ export interface IUserRepository {
   ): Promise<User | undefined>;
 
   /**
+   * Find all users by any field
+   */
+  index(): Promise<User[]>;
+
+  /**
    * List all users by any field and pagination the results
    *  @param deleted_to get deleted users
    */

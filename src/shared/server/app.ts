@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import { LoggerStream } from '@config/winston';
 import '../container';
+import '../jobs';
 
 import { uploadConfig } from '@config/upload';
 import { globalErrorHandler } from '../middleware/globalErrorHandler';
