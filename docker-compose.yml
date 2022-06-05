@@ -38,6 +38,6 @@ services:
       - db
       - redis
     ports:
-      - ${PORT}:${PORT}
+      - ${API_PORT}:${API_PORT}
 
 
