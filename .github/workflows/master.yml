@@ -58,4 +58,4 @@ jobs:
             cd ~/apps/order-backend
             yarn
             ./node_modules/.bin/typeorm migration:run
-            docker-compose up --build
+            docker-compose up --build -d
