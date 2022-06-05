@@ -56,6 +56,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/apps/order-backend
-            yarn
-            ./node_modules/.bin/typeorm migration:run
+            node i
+            node run typeorm migration:run
             docker-compose up --build -d
