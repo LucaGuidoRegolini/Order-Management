@@ -33,7 +33,7 @@ jobs:
 
       #  #Executar os testes
       - name: Run Tests
-        run: yarn test
+        run: npm run test
 
       # Copiar código para o Servidor
       - name: Copy dist to Server
@@ -56,6 +56,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/apps/order-backend
-            node i
-            node run typeorm migration:run
+            npm i
+            npm run typeorm migration:run
             docker-compose up --build -d
