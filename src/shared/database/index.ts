@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { createConnections } from 'typeorm';
 
-const mode = process.env.API_MODE !== 'DEV' ? 'dist' : 'src';
+const mode = 'src';
 
 createConnections([
   {
