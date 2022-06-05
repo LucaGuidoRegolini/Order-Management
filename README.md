@@ -2,17 +2,18 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/LucaGuidoRegolini/Order-Management?style=flat-square)
 ![GitHub license](https://img.shields.io/github/license/LucaGuidoRegolini/Order-Management?style=flat-square)
-![Gitthub top languagem](https://img.shields.io/github/languages/top/LucaGuidoRegolini/Order-Management)
+![Github top language](https://img.shields.io/github/languages/top/LucaGuidoRegolini/Order-Management)
 
 
 An api integrated with the pipedrive sales platform
-Made in typescript, containerized with docker-compose 
+Made in typescript, containerized with docker-compose
 
 ## Modules
 
 * Create update User
 * Login, Logout and Refresh Session
 * Update Avatar User
+* Soft delete User
 * Secure password recovery and change
 * Email confirmation
 * Automatic sync with Pipedrive
@@ -30,7 +31,7 @@ Made in typescript, containerized with docker-compose
 git clone https://github.com/LucaGuidoRegolini/Order-Management.git
 ```
 
-2. Install the depedencies
+2. Install the dependencies
 
 ```
 npm i
@@ -76,11 +77,11 @@ The documentation was made through postman and can be accessed here
 
 ### Typescript
 
-All aplication is make in typescript, a modern and powerfull lenguage 
+All aplication is make in typescript, a modern and powerful language
 
 ### NodeJs
 
-The code runing in NodeJs, an open-source, cross-platform, back-end JavaScript runtime
+The code running in NodeJs, an open-source, cross-platform, back-end JavaScript runtime
 
 ### Docker
 
@@ -93,6 +94,10 @@ A tool for defining and running multi-container Docker applications
 ### Postgress
 
 A SQL Database, widely used in the market
+
+### Redis
+
+The open source, in-memory data store
 
 ### AWS
 

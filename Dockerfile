@@ -8,6 +8,6 @@ RUN npm install
 RUN npm run build
 
 
-EXPOSE ${PORT}
+EXPOSE ${API_PORT}
 
 CMD ['npm', 'run', ${NODE_START}]

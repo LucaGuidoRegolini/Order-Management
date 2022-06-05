@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { CreateUserService } from '../services/CreateUserService';
+import { RestoreUserService } from '../services/RestoreUserService';
 import { ShowUserService } from '../services/ShowUserService';
 import { SoftDeleteUserService } from '../services/SoftDeleteUserService';
 import { UpdateUserService } from '../services/UpdateUserService';
@@ -60,5 +61,17 @@ export class UserController {
     });
 
     return res.status(204).send();
+  }
+
+  async restore(req: Request, res: Response): Promise<Response> {
+    const { id: user_id } = req.user;
+
+    const restoreUserService = container.resolve(RestoreUserService);
+
+    const user = await restoreUserService.execute({
+      user_id,
+    });
+
+    return res.json(user);
   }
 }

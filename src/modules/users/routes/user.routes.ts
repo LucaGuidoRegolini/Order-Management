@@ -27,5 +27,6 @@ userRoutes.use(ensureAuthenticated);
 userRoutes.put('/', updateUserValidation, userController.updated);
 userRoutes.get('/', userController.show);
 userRoutes.delete('/', userController.softDelete);
+userRoutes.put('/restore', userController.restore);
 
 export { userRoutes };
